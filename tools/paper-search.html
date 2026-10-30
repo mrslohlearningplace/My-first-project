@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Paper Search — Maths Tools Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/theme.js"></script>
+  <script src="../data/papers.js"></script>
+  <script src="../js/paper-search.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html">← Back to all tools</a>
+    <button type="button" class="theme-toggle" aria-pressed="false">Dark theme</button>
+  </header>
+
+  <main>
+    <h1>Exam Paper Search</h1>
+    <p class="intro">Find MOE secondary school common test and exam papers.</p>
+
+    <form id="search-form" class="filters">
+      <label class="filter filter-wide">
+        School
+        <input type="search" name="school" placeholder="Type a school name or code" autocomplete="off">
+      </label>
+      <label class="filter">Year <select name="year"></select></label>
+      <label class="filter">Level <select name="level"></select></label>
+      <label class="filter">Stream <select name="stream"></select></label>
+      <label class="filter">Subject <select name="subject"></select></label>
+      <label class="filter">Exam <select name="exam"></select></label>
+      <button type="reset" class="button">Clear filters</button>
+    </form>
+
+    <p id="result-count" class="result-count" aria-live="polite"></p>
+    <ul id="results" class="results"></ul>
+  </main>
+</body>
+</html>

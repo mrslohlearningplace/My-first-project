@@ -128,3 +128,80 @@ main {
   margin: 0;
   color: var(--muted);
 }
+
+/* Buttons that aren't the theme toggle (e.g. "Clear filters") */
+.button {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Exam Paper Search: filters stack on phones, sit in a grid on wider screens */
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .filters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filter-wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.filter input,
+.filter select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-weight: normal;
+}
+
+.result-count {
+  color: var(--muted);
+}
+
+.results {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.result {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.result h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.result p {
+  margin: 0.25rem 0 0.5rem;
+  color: var(--muted);
+}

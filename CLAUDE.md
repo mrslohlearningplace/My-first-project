@@ -9,9 +9,11 @@
 ## Project Structure
 
 - `index.html`: portal homepage with the grid of tool cards
-- `tools/`: one HTML page per tool (`tool-1.html` is a placeholder)
+- `tools/`: one HTML page per tool (`paper-search.html`)
 - `css/style.css`: shared styles, including light/dark colours
 - `js/theme.js`: theme toggle, loaded by every page
+- `js/paper-search.js`: search and filter logic for Exam Paper Search
+- `data/papers.js`: list of papers (and school names) the search uses
 - `README.md`: short project readme
 - `CLAUDE.md`: this file, guidance for Claude
 
@@ -44,11 +46,15 @@ Mathematics web tools.
 **Phase 1: Portal + Exam Paper Search**
 - [x] Homepage with the tool grid and light/dark toggle, plus a
   placeholder "Tool 1 — coming soon" card that opens and returns.
-- [ ] Exam Paper Search: filter MOE secondary common test and exam
+- [x] Exam Paper Search: filter MOE secondary common test and exam
   papers by school, year, level, stream, subject and exam type.
-  Each result links to where the paper is hosted.
-- [ ] Paper details and links live in `data/papers.js`, supplied by
-  the project owner.
+  Each result links to where the paper is hosted (papers only,
+  no marking schemes). Replaces the Tool 1 placeholder.
+- [x] Paper details and links live in `data/papers.js`, supplied by
+  the project owner. Starts with 14 Sec 3 A-Math EOY papers.
+- [ ] Add full school names to `window.SCHOOLS` in `data/papers.js`.
+- [ ] Share the Drive papers as "Anyone with the link can view"
+  (currently private, so only the owner can open them).
 
 **Phase 2: More tools** (to be decided)
 - Add further Mathematics tools, one card each.
