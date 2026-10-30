@@ -269,3 +269,87 @@ main {
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* Topic Worksheet */
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.worksheet h2 {
+  margin-bottom: 0.25rem;
+}
+
+.worksheet-questions {
+  padding-left: 1.5rem;
+}
+
+.worksheet-question {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.worksheet-question h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Question pictures are scans with a white background in both themes */
+.worksheet-question img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+
+.worksheet-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+}
+
+.worksheet-missing,
+.worksheet-note {
+  color: var(--muted);
+}
+
+/* Printing: only the worksheet itself, in black on white */
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #000000;
+    --muted: #333333;
+    --border: #999999;
+    --link: #000000;
+  }
+
+  .site-header,
+  main > h1,
+  main > .intro,
+  .worksheet-controls,
+  .worksheet-links {
+    display: none;
+  }
+
+  main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .worksheet-question h3 {
+    break-after: avoid;
+  }
+
+  .worksheet-question img {
+    break-inside: avoid;
+  }
+
+  .worksheet-question img {
+    border: 0;
+  }
+}

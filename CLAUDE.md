@@ -9,11 +9,15 @@
 ## Project Structure
 
 - `index.html`: portal homepage with the grid of tool cards
-- `tools/`: one HTML page per tool (`paper-search.html`)
+- `tools/`: one HTML page per tool (`paper-search.html`,
+  `topic-worksheet.html`)
 - `css/style.css`: shared styles, including light/dark colours
 - `js/theme.js`: theme toggle, loaded by every page
 - `js/paper-search.js`: search and filter logic for Exam Paper Search
-- `data/papers.js`: list of papers (and school names) the search uses
+- `js/topic-worksheet.js`: builds the Topic Worksheet
+- `data/papers.js`: list of papers, school names and topic tags
+- `data/question-images.js`: which picture files show each question
+- `images/questions/`: cropped question pictures (not added yet)
 - `README.md`: short project readme
 - `CLAUDE.md`: this file, guidance for Claude
 
@@ -63,6 +67,13 @@ Mathematics web tools.
   papers per topic, following the other filters. Clicking a topic
   selects it in the Topic filter.
 - [ ] Project owner reviews the topic tags (Claude tagged them).
+- [x] Topic Worksheet tool: pick a topic (and year) to get a printable
+  list of every question on it, with paper and marking scheme links.
+  JYSS is left out (its file has worked solutions in it).
+- [ ] Crop each question from the PDFs into `images/questions/` and
+  list them in `data/question-images.js`. Blocked: this environment's
+  network must allow `drive.google.com` and
+  `drive.usercontent.google.com` so the PDFs can be downloaded.
 
 **Phase 2: More tools** (to be decided)
 - Add further Mathematics tools, one card each.

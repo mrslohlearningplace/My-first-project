@@ -7,6 +7,7 @@
 // `url` is the paper's Google Drive link; `markingScheme` is the link to its
 // marking scheme, or "" if there isn't one.
 // `questions` lists each question number with its topic codes (see TOPICS).
+// `worksheet: false` leaves a paper's questions out of Topic Worksheet.
 window.SCHOOLS = {
   AIS: "Ahmad Ibrahim Secondary",
   BSS: "Bendemeer Secondary",
@@ -63,6 +64,7 @@ window.PAPERS = [
   { school: "GRS",  year: 2022, level: "Sec 3", stream: "Express", subject: "A-Math", exam: "End-of-Year", url: "https://drive.google.com/file/d/1kwLt5okAO2SOUGa5KmUkCYQsL_ZqEnnT/view", markingScheme: "https://drive.google.com/file/d/1FgBrx3cMLHRKr4_qAwqvTjapdwkVce2m/view",
     questions: { 1: ["QF"], 2: ["SU"], 3: ["EL"], 4: ["EI"], 5: ["EL", "SU"], 6: ["BT"], 7: ["EL"], 8: ["QF"], 9: ["PP"], 10: ["CG", "EI"], 11: ["PP"], 12: ["LL"], 13: ["CG"] } },
   { school: "JYSS", year: 2022, level: "Sec 3", stream: "Express", subject: "A-Math", exam: "End-of-Year", url: "https://drive.google.com/file/d/13WQsmvi9I8nvhY8Dbtsd53H0n9j5CUai/view", markingScheme: "https://drive.google.com/file/d/1nwT_45E1_HI_iApr--1YH-vUv8QauSw9/view",
+    worksheet: false, // this file has worked solutions printed between the questions
     questions: { 1: ["SU"], 2: ["SU"], 3: ["EL"], 4: ["QF"], 5: ["PP"], 6: ["BT"], 7: ["BT"], 8: ["LL", "EL"], 9: ["TR"], 10: ["TR"], 11: ["TR"], 12: ["TR"], 13: ["PP"], 14: ["CG"], 15: ["EI"], 16: ["TR"] } },
   { school: "KSS",  year: 2022, level: "Sec 3", stream: "Express", subject: "A-Math", exam: "End-of-Year", url: "https://drive.google.com/file/d/1RsmpRR1T1tF7wQyLHHRjqCCpu3Y6s2hw/view", markingScheme: "",
     questions: { 1: ["EI"], 2: ["EI"], 3: ["EI"], 4: ["QF"], 5: ["TR"], 6: ["SU"], 7: ["PP"], 8: ["BT"], 9: ["EL"], 10: ["LL"], 11: ["EL"], 12: ["PP"], 13: ["TR"], 14: ["EL"], 15: ["TR"], 16: ["CG"], 17: ["TR"], 18: ["CG"] } },
