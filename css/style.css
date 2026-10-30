@@ -205,3 +205,11 @@ main {
   margin: 0.25rem 0 0.5rem;
   color: var(--muted);
 }
+
+/* "Open paper" and "Open marking scheme" sit side by side, wrapping on phones */
+.result .result-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+}

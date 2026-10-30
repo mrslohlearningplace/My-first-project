@@ -48,8 +48,8 @@ Mathematics web tools.
   placeholder "Tool 1 — coming soon" card that opens and returns.
 - [x] Exam Paper Search: filter MOE secondary common test and exam
   papers by school, year, level, stream, subject and exam type.
-  Each result links to where the paper is hosted (papers only,
-  no marking schemes). Replaces the Tool 1 placeholder.
+  Each result links to where the paper is hosted, plus its marking
+  scheme where one exists. Replaces the Tool 1 placeholder.
 - [x] Paper details and links live in `data/papers.js`, supplied by
   the project owner. Starts with 14 Sec 3 A-Math EOY papers.
 - [ ] Add full school names to `window.SCHOOLS` in `data/papers.js`

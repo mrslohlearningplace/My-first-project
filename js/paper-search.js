@@ -18,6 +18,16 @@
     return name ? name + " (" + code + ")" : code;
   }
 
+  // A link that opens in a new tab.
+  function makeLink(href, text) {
+    var link = document.createElement("a");
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = text;
+    return link;
+  }
+
   // Fill a dropdown with every distinct value found in the data.
   function fillSelect(select, field, anyLabel) {
     var values = [];
@@ -62,13 +72,14 @@
       var details = document.createElement("p");
       details.textContent = [p.year, p.level, p.stream, p.subject, p.exam].join(" · ");
 
-      var link = document.createElement("a");
-      link.href = p.url;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = "Open paper";
+      var links = document.createElement("p");
+      links.className = "result-links";
+      links.appendChild(makeLink(p.url, "Open paper"));
+      if (p.markingScheme) {
+        links.appendChild(makeLink(p.markingScheme, "Open marking scheme"));
+      }
 
-      item.append(title, details, link);
+      item.append(title, details, links);
       list.appendChild(item);
     });
 
