@@ -54,8 +54,7 @@ Mathematics web tools.
   the project owner. Starts with 14 Sec 3 A-Math EOY papers.
 - [ ] Add full school names to `window.SCHOOLS` in `data/papers.js`
   (done: AIS, NV).
-- [ ] Share the Drive papers as "Anyone with the link can view"
-  (currently private, so only the owner can open them).
+- [x] Share the Drive papers as "Anyone with the link can view".
 
 **Phase 2: More tools** (to be decided)
 - Add further Mathematics tools, one card each.
