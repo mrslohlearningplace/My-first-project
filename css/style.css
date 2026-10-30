@@ -213,3 +213,9 @@ main {
   gap: 0.25rem 1.25rem;
   margin: 0;
 }
+
+/* Question numbers on the chosen topic, e.g. "Surds: Q2, Q7" */
+.result .result-topic {
+  color: var(--text);
+  font-weight: 600;
+}

@@ -53,8 +53,13 @@ Mathematics web tools.
 - [x] Paper details and links live in `data/papers.js`, supplied by
   the project owner. Starts with 14 Sec 3 A-Math EOY papers.
 - [ ] Add full school names to `window.SCHOOLS` in `data/papers.js`
-  (done: AIS, NV).
+  (all done from the paper covers except BWS).
 - [x] Share the Drive papers as "Anyone with the link can view".
+- [x] Topic per question: every question is tagged with MOE A-Math
+  syllabus topics (`window.TOPICS` and each paper's `questions` in
+  `data/papers.js`). A Topic filter shows matching papers and lists
+  the question numbers on that topic.
+- [ ] Project owner reviews the topic tags (Claude tagged them).
 
 **Phase 2: More tools** (to be decided)
 - Add further Mathematics tools, one card each.

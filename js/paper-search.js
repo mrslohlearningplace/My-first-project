@@ -1,8 +1,11 @@
 // Exam Paper Search: filters window.PAPERS (from data/papers.js) by a
-// school text search plus one dropdown per detail, and lists the matches.
+// school text search plus one dropdown per detail and a topic dropdown,
+// and lists the matches. With a topic chosen, each result also lists
+// the question numbers on that topic.
 (function () {
   var papers = window.PAPERS || [];
   var schools = window.SCHOOLS || {};
+  var topics = window.TOPICS || {};
 
   // Each dropdown: the paper field it filters on, and its "any" label.
   var FILTERS = [
@@ -44,11 +47,39 @@
     });
   }
 
+  // Fill the topic dropdown with every topic used by at least one question,
+  // in syllabus order (the order of window.TOPICS).
+  function fillTopicSelect(select) {
+    var used = {};
+    papers.forEach(function (p) {
+      Object.keys(p.questions || {}).forEach(function (q) {
+        p.questions[q].forEach(function (code) { used[code] = true; });
+      });
+    });
+
+    select.appendChild(new Option("Any topic", ""));
+    Object.keys(topics).forEach(function (code) {
+      if (used[code]) select.appendChild(new Option(topics[code], code));
+    });
+  }
+
+  // Question numbers in a paper tagged with the given topic code.
+  function questionsOnTopic(paper, code) {
+    var questions = paper.questions || {};
+    return Object.keys(questions)
+      .filter(function (q) { return questions[q].indexOf(code) !== -1; })
+      .sort(function (a, b) { return a - b; });
+  }
+
   function render(form, list, count) {
     var query = form.elements.school.value.trim().toLowerCase();
+    var topic = form.elements.topic.value;
 
     var matches = papers.filter(function (p) {
       if (query && schoolLabel(p.school).toLowerCase().indexOf(query) === -1) {
+        return false;
+      }
+      if (topic && questionsOnTopic(p, topic).length === 0) {
         return false;
       }
       return FILTERS.every(function (f) {
@@ -79,7 +110,18 @@
         links.appendChild(makeLink(p.markingScheme, "Open marking scheme"));
       }
 
-      item.append(title, details, links);
+      item.append(title, details);
+
+      if (topic) {
+        var onTopic = document.createElement("p");
+        onTopic.className = "result-topic";
+        onTopic.textContent =
+          topics[topic] + ": " +
+          questionsOnTopic(p, topic).map(function (q) { return "Q" + q; }).join(", ");
+        item.appendChild(onTopic);
+      }
+
+      item.appendChild(links);
       list.appendChild(item);
     });
 
@@ -97,6 +139,7 @@
     FILTERS.forEach(function (f) {
       fillSelect(form.elements[f.field], f.field, f.label);
     });
+    fillTopicSelect(form.elements.topic);
 
     var update = function () { render(form, list, count); };
     form.addEventListener("input", update);
