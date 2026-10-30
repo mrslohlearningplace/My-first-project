@@ -1,7 +1,8 @@
 // Exam Paper Search: filters window.PAPERS (from data/papers.js) by a
 // school text search plus one dropdown per detail and a topic dropdown,
 // and lists the matches. With a topic chosen, each result also lists
-// the question numbers on that topic.
+// the question numbers on that topic. A "Topics at a glance" table shows
+// question and paper counts per topic.
 (function () {
   var papers = window.PAPERS || [];
   var schools = window.SCHOOLS || {};
@@ -71,21 +72,79 @@
       .sort(function (a, b) { return a - b; });
   }
 
-  function render(form, list, count) {
+  // "Topics at a glance": for the given papers, how many questions are on
+  // each topic and how many papers test it, most-tested first. Clicking a
+  // topic selects it in the Topic filter (clicking it again clears it).
+  function renderStats(form, base, statsBody, statsCaption) {
+    var chosen = form.elements.topic.value;
+
+    var rows = Object.keys(topics).map(function (code) {
+      var questionCount = 0;
+      var paperCount = 0;
+      base.forEach(function (p) {
+        var n = questionsOnTopic(p, code).length;
+        questionCount += n;
+        if (n > 0) paperCount += 1;
+      });
+      return { code: code, questions: questionCount, papers: paperCount };
+    }).filter(function (r) {
+      return r.questions > 0;
+    }).sort(function (a, b) {
+      return b.questions - a.questions || b.papers - a.papers;
+    });
+
+    statsCaption.textContent =
+      "Based on " + base.length + (base.length === 1 ? " paper" : " papers") +
+      " matching your other filters.";
+
+    statsBody.textContent = "";
+    rows.forEach(function (r) {
+      var tr = document.createElement("tr");
+      if (r.code === chosen) tr.className = "is-selected";
+
+      var name = document.createElement("td");
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "link-button";
+      button.textContent = topics[r.code];
+      button.setAttribute("aria-pressed", String(r.code === chosen));
+      button.addEventListener("click", function () {
+        form.elements.topic.value = r.code === chosen ? "" : r.code;
+        form.dispatchEvent(new Event("input"));
+      });
+      name.appendChild(button);
+
+      var questionsCell = document.createElement("td");
+      questionsCell.textContent = r.questions;
+
+      var papersCell = document.createElement("td");
+      papersCell.textContent = r.papers + " of " + base.length;
+
+      tr.append(name, questionsCell, papersCell);
+      statsBody.appendChild(tr);
+    });
+  }
+
+  function render(form, list, count, statsBody, statsCaption) {
     var query = form.elements.school.value.trim().toLowerCase();
     var topic = form.elements.topic.value;
 
-    var matches = papers.filter(function (p) {
+    // Papers matching every filter except Topic: the base for the stats,
+    // so the table still shows all topics while one is selected.
+    var base = papers.filter(function (p) {
       if (query && schoolLabel(p.school).toLowerCase().indexOf(query) === -1) {
-        return false;
-      }
-      if (topic && questionsOnTopic(p, topic).length === 0) {
         return false;
       }
       return FILTERS.every(function (f) {
         var chosen = form.elements[f.field].value;
         return !chosen || String(p[f.field]) === chosen;
       });
+    });
+
+    renderStats(form, base, statsBody, statsCaption);
+
+    var matches = base.filter(function (p) {
+      return !topic || questionsOnTopic(p, topic).length > 0;
     });
 
     matches.sort(function (a, b) {
@@ -135,13 +194,15 @@
     var form = document.getElementById("search-form");
     var list = document.getElementById("results");
     var count = document.getElementById("result-count");
+    var statsBody = document.getElementById("topic-stats-body");
+    var statsCaption = document.getElementById("topic-stats-caption");
 
     FILTERS.forEach(function (f) {
       fillSelect(form.elements[f.field], f.field, f.label);
     });
     fillTopicSelect(form.elements.topic);
 
-    var update = function () { render(form, list, count); };
+    var update = function () { render(form, list, count, statsBody, statsCaption); };
     form.addEventListener("input", update);
     form.addEventListener("reset", function () { setTimeout(update); });
     form.addEventListener("submit", function (e) { e.preventDefault(); });

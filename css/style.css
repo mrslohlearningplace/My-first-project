@@ -219,3 +219,53 @@ main {
   color: var(--text);
   font-weight: 600;
 }
+
+/* Topics at a glance: a plain table of question and paper counts per topic */
+.topic-stats {
+  margin: 1.5rem 0;
+}
+
+.topic-stats h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.topic-stats-caption {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+}
+
+.topic-stats table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.topic-stats th,
+.topic-stats td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.topic-stats th:not(:first-child),
+.topic-stats td:not(:first-child) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.topic-stats tr.is-selected td {
+  background: var(--surface);
+  font-weight: 600;
+}
+
+/* A button that looks like a link (used for topic names in the table) */
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  cursor: pointer;
+}

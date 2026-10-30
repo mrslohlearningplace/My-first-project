@@ -33,6 +33,21 @@
       <button type="reset" class="button">Clear filters</button>
     </form>
 
+    <section class="topic-stats" aria-labelledby="topic-stats-heading">
+      <h2 id="topic-stats-heading">Topics at a glance</h2>
+      <p id="topic-stats-caption" class="topic-stats-caption"></p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Topic</th>
+            <th scope="col">Questions</th>
+            <th scope="col">Papers</th>
+          </tr>
+        </thead>
+        <tbody id="topic-stats-body"></tbody>
+      </table>
+    </section>
+
     <p id="result-count" class="result-count" aria-live="polite"></p>
     <ul id="results" class="results"></ul>
   </main>

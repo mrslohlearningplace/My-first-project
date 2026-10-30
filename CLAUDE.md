@@ -59,6 +59,9 @@ Mathematics web tools.
   syllabus topics (`window.TOPICS` and each paper's `questions` in
   `data/papers.js`). A Topic filter shows matching papers and lists
   the question numbers on that topic.
+- [x] "Topics at a glance" table on the search page: questions and
+  papers per topic, following the other filters. Clicking a topic
+  selects it in the Topic filter.
 - [ ] Project owner reviews the topic tags (Claude tagged them).
 
 **Phase 2: More tools** (to be decided)
