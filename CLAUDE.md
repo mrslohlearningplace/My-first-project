@@ -21,6 +21,40 @@ New pages, styles, and scripts will go at the top level until a clearer structur
 2. Users can toggle between a light and a dark theme. The default is the light theme.
 3. Text must stay easy to read, with good contrast, in both the light and the dark theme.
 
+## Feature Plan
+
+A web portal where secondary school students try out small
+Mathematics web tools.
+
+### Portal structure
+
+- **Homepage** (`index.html`): site name, theme toggle, and a grid
+  of tool cards. Each card shows the tool's name and a one-line
+  description.
+- **Opening a tool**: clicking a card opens that tool's own page
+  in `tools/`.
+- **Getting back**: every tool page has a header link back to the
+  homepage.
+- **Adding a tool later**: create a new page in `tools/` (plus its
+  script in `js/` if needed), then add one card for it on the
+  homepage.
+
+### Phases
+
+**Phase 1: Portal + Exam Paper Search**
+- Homepage with the tool grid and light/dark toggle.
+- Exam Paper Search: filter MOE secondary common test and exam
+  papers by school, year, level, stream, subject and exam type.
+  Each result links to where the paper is hosted.
+- Paper details and links live in `data/papers.js`, supplied by
+  the project owner.
+
+**Phase 2: More tools** (to be decided)
+- Add further Mathematics tools, one card each.
+
+**Phase 3: Polish** (to be decided)
+- Improvements based on student feedback.
+
 ## Rules for Claude
 
 - Explain technical terms in plain language.
