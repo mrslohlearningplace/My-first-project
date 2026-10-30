@@ -6,7 +6,7 @@
 // `name` is the school's full name: leave it "" to show just the code.
 // `url` is the paper's Google Drive link.
 window.SCHOOLS = {
-  AIS: "",
+  AIS: "Anglican High School",
   BSS: "",
   BVS: "",
   BWS: "",
@@ -18,7 +18,7 @@ window.SCHOOLS = {
   JYSS: "",
   KSS: "",
   MGS: "",
-  NV: ""
+  NV: "Naval Base Secondary"
 };
 
 window.PAPERS = [

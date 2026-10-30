@@ -52,7 +52,8 @@ Mathematics web tools.
   no marking schemes). Replaces the Tool 1 placeholder.
 - [x] Paper details and links live in `data/papers.js`, supplied by
   the project owner. Starts with 14 Sec 3 A-Math EOY papers.
-- [ ] Add full school names to `window.SCHOOLS` in `data/papers.js`.
+- [ ] Add full school names to `window.SCHOOLS` in `data/papers.js`
+  (done: AIS, NV).
 - [ ] Share the Drive papers as "Anyone with the link can view"
   (currently private, so only the owner can open them).
 
