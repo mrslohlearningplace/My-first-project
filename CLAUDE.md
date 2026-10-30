@@ -8,12 +8,12 @@
 
 ## Project Structure
 
-The project is nearly empty for now.
-
+- `index.html`: portal homepage with the grid of tool cards
+- `tools/`: one HTML page per tool (`tool-1.html` is a placeholder)
+- `css/style.css`: shared styles, including light/dark colours
+- `js/theme.js`: theme toggle, loaded by every page
 - `README.md`: short project readme
 - `CLAUDE.md`: this file, guidance for Claude
-
-New pages, styles, and scripts will go at the top level until a clearer structure is needed.
 
 ## Key Requirements
 
@@ -42,11 +42,12 @@ Mathematics web tools.
 ### Phases
 
 **Phase 1: Portal + Exam Paper Search**
-- Homepage with the tool grid and light/dark toggle.
-- Exam Paper Search: filter MOE secondary common test and exam
+- [x] Homepage with the tool grid and light/dark toggle, plus a
+  placeholder "Tool 1 — coming soon" card that opens and returns.
+- [ ] Exam Paper Search: filter MOE secondary common test and exam
   papers by school, year, level, stream, subject and exam type.
   Each result links to where the paper is hosted.
-- Paper details and links live in `data/papers.js`, supplied by
+- [ ] Paper details and links live in `data/papers.js`, supplied by
   the project owner.
 
 **Phase 2: More tools** (to be decided)

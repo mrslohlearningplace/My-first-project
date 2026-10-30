@@ -1,0 +1,130 @@
+/* Colours live here as named values ("CSS variables").
+   Light is the default; the dark set applies when <html data-theme="dark">.
+   Every text/background pair meets WCAG AA contrast (4.5:1 or more). */
+:root {
+  --bg: #ffffff;
+  --surface: #f6f8fa;
+  --text: #1f2328;
+  --muted: #57606a;
+  --border: #d0d7de;
+  --link: #0a56c2;
+  --focus: #0a56c2;
+}
+
+:root[data-theme="dark"] {
+  --bg: #16181d;
+  --surface: #20242b;
+  --text: #e6e8eb;
+  --muted: #a9b1bb;
+  --border: #3a414b;
+  --link: #8ab4f8;
+  --focus: #8ab4f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--link);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Header: site name / back link on the left, theme toggle on the right */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.site-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.theme-toggle {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.intro {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+/* Tool grid: 1 column on phones, 2 on tablets, 3 on desktop */
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 600px) {
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .tool-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tool-card {
+  display: block;
+  height: 100%;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.tool-card:hover {
+  border-color: var(--link);
+}
+
+.tool-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.tool-card p {
+  margin: 0;
+  color: var(--muted);
+}
