@@ -62,7 +62,7 @@ window.PAPERS = [
   { school: "GMS",  year: 2022, level: "Sec 3", stream: "Express", subject: "A-Math", exam: "End-of-Year", url: "https://drive.google.com/file/d/1A2cQz_BAgGr6hODC4R4kPcGTqq7426ZX/view", markingScheme: "https://drive.google.com/file/d/1KFjNrMxROF7fy5iJcoz2A3BlZb-m6SrO/view",
     questions: { 1: ["EI"], 2: ["QF"], 3: ["EI"], 4: ["TR"], 5: ["TR"], 6: ["PP"], 7: ["TR"], 8: ["EL"], 9: ["PP"], 10: ["PP"], 11: ["EL", "PP"], 12: ["TR"], 13: ["SU"], 14: ["CG"] } },
   { school: "GRS",  year: 2022, level: "Sec 3", stream: "Express", subject: "A-Math", exam: "End-of-Year", url: "https://drive.google.com/file/d/1kwLt5okAO2SOUGa5KmUkCYQsL_ZqEnnT/view", markingScheme: "https://drive.google.com/file/d/1FgBrx3cMLHRKr4_qAwqvTjapdwkVce2m/view",
-    questions: { 1: ["QF"], 2: ["SU"], 3: ["EL"], 4: ["EI"], 5: ["EL", "SU"], 6: ["BT"], 7: ["EL"], 8: ["QF"], 9: ["PP"], 10: ["CG", "EI"], 11: ["PP"], 12: ["LL"], 13: ["CG"] } },
+    questions: { 1: ["QF"], 2: ["SU"], 3: ["EL"], 4: ["EI"], 5: ["EL"], 6: ["BT"], 7: ["EL"], 8: ["QF"], 9: ["PP"], 10: ["CG", "EI"], 11: ["PP"], 12: ["LL"], 13: ["CG"] } },
   { school: "JYSS", year: 2022, level: "Sec 3", stream: "Express", subject: "A-Math", exam: "End-of-Year", url: "https://drive.google.com/file/d/13WQsmvi9I8nvhY8Dbtsd53H0n9j5CUai/view", markingScheme: "https://drive.google.com/file/d/1nwT_45E1_HI_iApr--1YH-vUv8QauSw9/view",
     worksheet: false, // this file has worked solutions printed between the questions
     questions: { 1: ["SU"], 2: ["SU"], 3: ["EL"], 4: ["QF"], 5: ["PP"], 6: ["BT"], 7: ["BT"], 8: ["LL", "EL"], 9: ["TR"], 10: ["TR"], 11: ["TR"], 12: ["TR"], 13: ["PP"], 14: ["CG"], 15: ["EI"], 16: ["TR"] } },

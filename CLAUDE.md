@@ -17,7 +17,7 @@
 - `js/topic-worksheet.js`: builds the Topic Worksheet
 - `data/papers.js`: list of papers, school names and topic tags
 - `data/question-images.js`: which picture files show each question
-- `images/questions/`: cropped question pictures (not added yet)
+- `images/questions/`: cropped question pictures, one or more per question
 - `README.md`: short project readme
 - `CLAUDE.md`: this file, guidance for Claude
 
@@ -70,10 +70,9 @@ Mathematics web tools.
 - [x] Topic Worksheet tool: pick a topic (and year) to get a printable
   list of every question on it, with paper and marking scheme links.
   JYSS is left out (its file has worked solutions in it).
-- [ ] Crop each question from the PDFs into `images/questions/` and
-  list them in `data/question-images.js`. Blocked: this environment's
-  network must allow `drive.google.com` and
-  `drive.usercontent.google.com` so the PDFs can be downloaded.
+- [x] Crop each question from the PDFs into `images/questions/` and
+  list them in `data/question-images.js` (172 questions from the 13
+  worksheet papers). New papers need cropping too.
 
 **Phase 2: More tools** (to be decided)
 - Add further Mathematics tools, one card each.
